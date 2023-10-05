@@ -1,0 +1,14 @@
+.main::-webkit-scrollbar{
+    width: .3rem;
+    background-color: #ddd;
+}
+.main::-webkit-scrollbar-thumb{
+    background-color: #333;
+}
+.main h1{
+    -webkit-text-stroke: #eee 2px;
+    color: transparent;
+}
+.main h1::selection{
+    -webkit-text-fill-color: #eee;
+}
