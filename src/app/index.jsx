@@ -5,6 +5,7 @@ import Gallery from '@components/sections/gallery';
 import Footer from '@components/footer';
 import About from '@components/sections/about';
 import Testimonials from '@components/sections/testimonials';
+import Preloader from '@components/preloader';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Testimonials/>
         <Footer />
       </main>
+      <Preloader/>
     </div>
   )
 }

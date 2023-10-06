@@ -1,13 +1,32 @@
-import about_image from '@assets/bg_6.jpg';
+import about_image from '@assets/bg_6.webp';
 import { HandWaving } from '@phosphor-icons/react';
+import { useEffect,useRef,useState } from 'react';
 
 export default function About() {
+    const cardRef = useRef(false);
+    const [show,setShow] = useState(false)
+    function loadImage(){
+        setTimeout(()=>setShow(true),1000)
+    }
+    useEffect(()=>{
+        const observer = new IntersectionObserver((entry)=>{
+            if(entry[0].isIntersecting){
+                const image = document.createElement('img')
+                image.src = about_image;
+                image.onload = loadImage;
+            }
+        })
+        observer.observe(cardRef.current);
+        return () => {
+            observer.disconnect();
+        }
+    },[])
     return (
         <section id='about' className={`w-full`}>
             <div className="max-w-6xl w-full mx-auto h-full grid grid-cols-2 tablet:grid-cols-1 gap-4 py-20 px-10 tablet:px-4">
-                <div className='relative before:absolute before:-bottom-8 before:right-0 before:w-[100px] before:rounded-lg before:h-[100px] before:bg-red-600 before:bg-opacity-20 '>
-                    <div className='max-w-md w-full min-h-[200px] h-[500px] rounded-lg border overflow-hidden'>
-                        <img className='relative w-full h-full object-cover object-center shadow-xl hover:scale-110 duration-1000' src={about_image} alt="" />
+                <div ref={cardRef} className='relative before:absolute before:-bottom-8 before:right-0 before:w-[100px] before:rounded-lg before:h-[100px] before:bg-red-600 before:bg-opacity-20 '>
+                    <div className={`${!show && 'skeletton'} max-w-md w-full min-h-[200px] h-[500px] rounded-lg border overflow-hidden`}>
+                        {show && <img className='relative w-full h-full object-cover object-center shadow-xl hover:scale-110 duration-1000' src={about_image} alt="" />}
                     </div>
                 </div>
                 <div className='flex justify-center'>

@@ -5,7 +5,7 @@ import { useAppContext } from '../../../../context';
 export default function Hero() {
     const {setActiveMobile} = useAppContext();
     return (
-        <section id='home' className={`h-screen flex w-full bg-[url('@assets/bg_4.jpg')] bg-no-repeat bg-cover bg-center bg-fixed relative before:absolute before:inset-y-0 before:w-full before:bg-black before:bg-opacity-75 before:z-10 before:backdrop-blur-[4px]`}>
+        <section id='home' className={`h-screen flex w-full bg-[url('@assets/bg_4.webp')] bg-no-repeat bg-cover bg-center bg-fixed relative before:absolute before:inset-y-0 before:w-full before:bg-black before:bg-opacity-75 before:z-10 before:backdrop-blur-[4px]`}>
             <FaBars onClick={()=>setActiveMobile(true)} color="#fff" size={22} className={`hidden tablet:block absolute top-3 right-4 z-[50] cursor-pointer`} />
             <div className="max-w-6xl w-full mx-auto flex-1 flex items-center py-2 tablet:px-3 relative z-20">
                 <div className="flex flex-col gap-2 max-w-md w-full ml-auto">
